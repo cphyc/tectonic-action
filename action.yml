@@ -5,6 +5,10 @@ branding:
   icon: file-text
   color: blue
 inputs:
+  extra_args:
+    description: 'Extra arguments to pass to docker'
+    required: false
+    default: ''
   tex_path:  # id of input
     description: 'Path of Tex File'
     required: true
@@ -16,5 +20,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.extra_args }}
     - ${{ inputs.tex_path }}
     - ${{ inputs.push }}
