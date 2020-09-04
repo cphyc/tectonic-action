@@ -2,6 +2,12 @@
 
 set -e
 echo "Compiling $1"
+
+if [[ $3 == 'yes' ]]; then
+  # Link tectonic cache
+  ln -s /github/home/.cache/Tectonic $HOME/.cache/Tectonic
+fi
+
 tectonic $1
 
 PUSH_OUTPUT=$(echo "$2" | tr '[:upper:]' '[:lower:]')

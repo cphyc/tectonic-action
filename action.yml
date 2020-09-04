@@ -5,10 +5,6 @@ branding:
   icon: file-text
   color: blue
 inputs:
-  extra_args:
-    description: 'Extra arguments to pass to docker'
-    required: false
-    default: ''
   tex_path:  # id of input
     description: 'Path of Tex File'
     required: true
@@ -16,10 +12,14 @@ inputs:
     description: 'String stating whether to push output PDF, PDF will only be pushed in case of "yes"'
     default: 'no'
     required: false
+  link_tectonic_cache:
+    description: 'Link docker tectonic cache to github cache'
+    default: 'no'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.extra_args }}
     - ${{ inputs.tex_path }}
     - ${{ inputs.push }}
+    - ${{ inputs.link_tectonic_cache }}
