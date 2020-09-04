@@ -4,10 +4,10 @@ set -e
 
 if [[ $3 == 'yes' ]]; then
   echo "Linking tectonic cache"
-  mkdir -p $HOME/.cache/
+  mkdir -p $HOME/.cache
   if [[ ! -d /github/home/.cache/Tectonic ]]; then
     rm -f /github/home/.cache/Tectonic
-    mkdir /github/home/.cache/Tectonic
+    mkdir -p /github/home/.cache/Tectonic
   fi
   ln -s /github/home/.cache/Tectonic $HOME/.cache/Tectonic
 fi
