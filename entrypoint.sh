@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 set -e
-echo "Compiling $1"
 
 if [[ $3 == 'yes' ]]; then
-  # Link tectonic cache
+  echo "Linking tectonic cache"
   mkdir -p $HOME/.cache/
   ln -s /github/home/.cache/Tectonic $HOME/.cache/Tectonic
 fi
+
+echo "Compiling $1"
 
 tectonic $1
 
