@@ -5,6 +5,7 @@ echo "Compiling $1"
 
 if [[ $3 == 'yes' ]]; then
   # Link tectonic cache
+  mkdir -p $HOME/.cache/
   ln -s /github/home/.cache/Tectonic $HOME/.cache/Tectonic
 fi
 
